@@ -7,7 +7,7 @@ import {
 import { connect } from "@/dbConfig/dbConfig";
 import Instructor from "@/models/instructorModel";
 
-connect("music");
+connect();
 
 type Instructor = {
   id: number;

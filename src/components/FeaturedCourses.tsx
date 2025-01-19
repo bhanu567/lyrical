@@ -13,7 +13,7 @@ import Course from "@/models/courses";
 //   }
 // );
 
-connect("music");
+connect();
 async function getCourses() {
   const courses = await Course.find({});
   const featuredCourses = courses.filter((course) => course.isFeatured);
