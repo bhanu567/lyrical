@@ -6,7 +6,7 @@ import { sendEmail } from "@/helpers/mailer";
 import jwt from "jsonwebtoken";
 import uploadToCloudinary from "@/helpers/fileUploadCloudinary";
 
-connect("user");
+connect();
 
 export async function POST(request: NextRequest) {
   try {

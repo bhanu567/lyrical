@@ -2,7 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { connect } from "@/dbConfig/dbConfig";
 import Feedback from "@/models/feedbackModel";
 
-connect("user");
+connect();
 
 export async function POST(req: NextRequest) {
   try {

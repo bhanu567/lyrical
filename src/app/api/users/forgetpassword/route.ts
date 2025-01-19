@@ -3,7 +3,7 @@ import User from "@/models/userModel";
 import { sendEmail } from "@/helpers/mailer";
 import { connect } from "@/dbConfig/dbConfig";
 
-connect("user");
+connect();
 
 export async function POST(req: NextRequest) {
   try {

@@ -3,7 +3,7 @@ import User from "@/models/userModel";
 import { connect } from "@/dbConfig/dbConfig";
 import getIdFromToken from "@/helpers/getIdFromToken";
 
-connect("user");
+connect();
 
 export async function GET(request: NextRequest) {
   try {

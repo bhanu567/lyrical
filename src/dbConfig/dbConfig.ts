@@ -1,8 +1,8 @@
 import mongoose from "mongoose";
 
-export async function getDatabaseConnection(mongoUrl: string) {
+export async function connect() {
   try {
-    await mongoose.connect(mongoUrl);
+    await mongoose.connect(process.env.MUSIC_COURSE_DATABASE_URL!);
     const connection = mongoose.connection;
 
     connection.on("connected", () => {
@@ -20,19 +20,19 @@ export async function getDatabaseConnection(mongoUrl: string) {
   }
 }
 
-export function connect(databaseName: string) {
-  try {
-    const mongoUrl =
-      databaseName === "music"
-        ? process.env.MUSIC_COURSE_DATABASE_URL!
-        : process.env.USERS_DATABASE_URL!;
+// export function connect(databaseName: string) {
+//   try {
+//     const mongoUrl =
+//       databaseName === "music"
+//         ? process.env.MUSIC_COURSE_DATABASE_URL!
+//         : process.env.USERS_DATABASE_URL!;
 
-    getDatabaseConnection(mongoUrl);
-  } catch (error) {
-    console.log("Something goes wrong! in Connect");
-    console.log(error);
-  }
-}
+//     getDatabaseConnection(mongoUrl);
+//   } catch (error) {
+//     console.log("Something goes wrong! in Connect");
+//     console.log(error);
+//   }
+// }
 // import mongoose, { Connection } from "mongoose";
 
 // const connections: Record<string, Connection> = {};

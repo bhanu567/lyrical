@@ -6,7 +6,7 @@ import { CardBody, CardContainer, CardItem } from "@/components/ui/3d-card";
 import { connect } from "@/dbConfig/dbConfig";
 import Course from "@/models/courses";
 
-connect("music");
+connect();
 async function getCourses() {
   const courses = await Course.find({});
   return courses;

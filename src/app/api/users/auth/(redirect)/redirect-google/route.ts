@@ -21,7 +21,7 @@ import User from "@/models/userModel";
 import { connect } from "@/dbConfig/dbConfig";
 import jwt from "jsonwebtoken";
 
-connect("user");
+connect();
 
 export async function GET(req: NextRequest) {
   const { searchParams } = new URL(req.url);
