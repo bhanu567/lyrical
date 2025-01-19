@@ -60,7 +60,7 @@ export async function GET(req: NextRequest) {
       expiresIn: "1d",
     });
 
-    const response = NextResponse.redirect(`http://localhost:3000/profile`);
+    const response = NextResponse.redirect(`${process.env.DOMAIN!}/profile`);
 
     response.cookies.set("token", token, {
       httpOnly: true,

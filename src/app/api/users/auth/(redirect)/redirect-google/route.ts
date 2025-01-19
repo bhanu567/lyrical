@@ -36,7 +36,7 @@ export async function GET(req: NextRequest) {
         client_secret: process.env.GOOGLE_CLIENT_SECRET!,
         code,
         grant_type: "authorization_code",
-        redirect_uri: "http://localhost:3000/api/users/auth/redirect-google",
+        redirect_uri: `${process.env.DOMAIN!}/api/users/auth/redirect-google`,
       }),
       { headers: { "Content-Type": "application/x-www-form-urlencoded" } }
     );
@@ -75,7 +75,7 @@ export async function GET(req: NextRequest) {
       expiresIn: "1d",
     });
 
-    const response = NextResponse.redirect(`http://localhost:3000/profile`);
+    const response = NextResponse.redirect(`${process.env.DOMAIN!}/profile`);
 
     response.cookies.set("token", token, {
       httpOnly: true,
