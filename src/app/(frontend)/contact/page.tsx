@@ -11,12 +11,15 @@ function MusicSchoolContactUs() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     try {
-      const response: any = await axios.post("/api/contact");
-      toast.success(response.message);
+      const response: any = await axios.post("/api/contact", {
+        email,
+        message,
+      });
+      if (response.status === 200) toast.success(response.data.message);
+      else toast.error(response.data.error);
     } catch (error: any) {
       toast.error(error.message);
     }
-    console.log("Submitted:", { email, message });
   };
 
   return (

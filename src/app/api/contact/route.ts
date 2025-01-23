@@ -13,11 +13,17 @@ export async function POST(req: NextRequest) {
       message: reqData.message,
     });
     await newFeedack.save();
-    return NextResponse.json({
-      message: "Thank you for your opinion!!!",
-      status: 400,
-    });
+    return NextResponse.json(
+      {
+        message: "Thank you for your opinion!!!",
+        success: true,
+      },
+      { status: 200 }
+    );
   } catch (error: any) {
-    return NextResponse.json({ error: error.message, status: 500 });
+    return NextResponse.json(
+      { error: error.message, success: false },
+      { status: 500 }
+    );
   }
 }

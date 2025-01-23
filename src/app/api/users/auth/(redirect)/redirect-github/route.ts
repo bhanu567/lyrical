@@ -50,7 +50,6 @@ export async function GET(req: NextRequest) {
         setDefaultsOnInsert: true, // Apply schema defaults for new documents
       }
     );
-    console.log("savedUser", savedUser);
 
     const tokenData = {
       id: savedUser._id,
