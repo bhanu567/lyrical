@@ -11,7 +11,7 @@ export function middleware(request: NextRequest) {
 
   if (path.startsWith("/profile")) {
     if (!token) {
-      return NextResponse.redirect("/login");
+      return NextResponse.redirect(`${process.env.DOMAIN!}/login`); // Redirect to login page if user is not authenticated
     } else return NextResponse.next();
   }
   if (isPublicPath && token) {
